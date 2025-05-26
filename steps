@@ -1,0 +1,13 @@
+2 players - Done
+1 deck of cards - Done
+each player gets 26 cards (so split evenly) - Done
+
+each player stacks their cards face down - hidden
+
+each player flips one card at the same time - high card wins - player with the high card takes both cards and puts them on the bottom of their stack
+
+    - if the cards are the same - it's war
+        - WAR:
+            - each player takes one card off the top and keeps face down, then takes one card off the top, face up - player with the higher card takes the whole pile (6 cards)
+                - if the cards are again the same, each player repeats - taking off one card and keeps face down, the takes another card of the top face up - winner takes all 10 cards now
+    Game continues until one player has won all cards
