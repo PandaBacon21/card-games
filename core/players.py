@@ -1,4 +1,4 @@
-class Player():
+class Player:
     def __init__(self, name):
         self.name = name
         self.cards = []# array of cards to be played
@@ -14,3 +14,8 @@ class Player():
     
     def increment_hands_won(self):
         self.hands_won += 1
+
+# Dealer Class for Blackjack
+class Dealer(Player):
+    def __init__(self, name="Dealer"): 
+        super().__init__(name)

@@ -1,13 +1,116 @@
-2 players - Done
-1 deck of cards - Done
-each player gets 26 cards (so split evenly) - Done
+Future Updates: - Add menu to click through and pick which game - such as War, Poker, Blackjack
 
-each player stacks their cards face down - hidden
+War:
 
-each player flips one card at the same time - high card wins - player with the high card takes both cards and puts them on the bottom of their stack
+    2 players - 1 human - 1 computer - DONE
+    1 deck of cards - DONE
+        - shuffle cards - DONE
 
-    - if the cards are the same - it's war
-        - WAR:
-            - each player takes one card off the top and keeps face down, then takes one card off the top, face up - player with the higher card takes the whole pile (6 cards)
-                - if the cards are again the same, each player repeats - taking off one card and keeps face down, the takes another card of the top face up - winner takes all 10 cards now
-    Game continues until one player has won all cards
+    each player gets 26 cards (so split evenly) - DONE
+
+    each player stacks their cards face down - hidden - DONE
+
+    each player flips one card at the same time - high card wins - player with the high card takes both cards and puts them on the bottom of their stack - DONE
+
+        - if the cards are the same: - DONE
+            - WAR:
+                - each player takes one card off the top and keeps face down, then takes one card off the top, face up - player with the higher card takes the whole pile (6 cards)
+                    - if the cards are again the same, each player repeats - taking off one card and keeps face down, the takes another card of the top face up - winner takes all 10 cards now
+        Game continues until one player has won all cards - DONE
+
+    FUTURE UPDATE:
+        - add support for 2 human players on two different terminals
+            - will need a client/server setup
+        - update UI to create basic card templates... (or update to s)
+
+BlackJack:
+
+    Players
+        - gets cards - gets money (start with basic, same amount) - can only bet up to the amount they have - can bet - take money out - can add money when they win
+
+    1 human player
+
+    1-5 computer players
+    dealer (also a kind of player)
+
+    - 4 decks of cards
+        - all shuffled together
+
+    each player dealt 2 cards (one per player per rotation) - face up for all to see
+        - dealer gets one card down and one card up
+
+    betting:
+        - all players bet first before cards
+
+    Game:
+        - players trying to get to 21
+            - if they exceed 21, they lose (bust)
+        - players can "hit" or stay
+
+Texas Hold'em:
+
+    Players
+        - gets cards
+        - gets money (start with basic, same amount)
+            - can only bet up to the amount they have
+        - can bet - take money out
+        - can add money when they win
+    1 human player
+    1-5 computer players
+    1 deck of cards
+        - shuffle cards
+
+    - BETTING:
+        - can only bet up to the amount a player has
+        - if all players in a hand all "all in". All players show cards and each round is played without additional betting
+        - if player doesn't have enough money to match a bet but they want to play
+            - side pot gets created between players for any amount over the amount that player can bet
+                - Example:
+                    - 4 players - 3 have $100 but one only has $30
+                        - player1 bets $50
+                        - player2 matches $50
+                        - player3 folds
+                        - player4 goes all in with $30 (doesn't have $50 to bet)
+                            - player1's bet is split into $30 to main pot, $20 to side pot with player2
+                            - player2's bet is split into $30 to main pot, $20 to side pot with player1
+                            - player4's bet is only $30 into main pot
+                                - player1 and player2 can continue betting but will only bet into side pot with each other. No other money can be added to main pot
+                                - player4 can only win money from main pot
+                                    - if player4 has best overall hand, they will only win main pot
+                                        - side pot will be won by either player1 or player2, even if player4 had best hand
+
+
+    Game:
+    one player is big blind, one is small blind (initial bets)
+        - if only 2 players, it rotates back and forth
+        - if more than 2, it rotates in a standard rotation (through an array)
+
+    each player dealt 2 cards face down (one per player per rotation)
+        - everyone bets
+            - can either match big blind, raise, or fold
+                - if only matched big blind, big blind can check - not bet but move on
+                - if raised from big blind, all players must match or fold
+                    - if fold, they are done for that hand
+
+    one card burned, three table cards flipped over
+        - everyone bets
+            - can either check, or bet
+                - if anyone bets, everyone must either match or raise
+                    - if anyone raises, others must match or fold
+
+    one card burned, one card flipped over
+        - betting occurs again
+
+    finally, one card burned, one card flipped over
+        - final round of betting
+        - all players now compare cards to see who won
+            - winner takes all money and new hand is started with the big and little blinds moving on in the rotation
+
+    If player runs out of money, they are done.
+
+    - Keep playing until only one winner
+
+
+    FUTURE UPDATE:
+        - add support for 1-6 human players on different terminals
+            - will need a client/server setup

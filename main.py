@@ -1,11 +1,7 @@
-from curses import wrapper
-from utils.cards import CardDeck
-from utils.players import Player
-from games import war
+# from curses import wrapper
+from core.utils.menu import game_menu
+from games import war, blackjack
 
-# Add Menu - Will add multiple games, like War, Texas Hold'em, BlackJack
-def game_menu(stdscr): 
-    stdscr.clear()
 
 def keep_playing():
     while True: 
@@ -20,24 +16,17 @@ def keep_playing():
             
 def main():
     try:
-        wrapper(game_menu)
-
+        # wrapper(game_menu)
         PLAYING = True
         name = input("Enter your name: ")
         while PLAYING == True: 
-                HumanPlayer = Player(name)
-                ComputerPlayer = Player("Computer")
-                Deck = CardDeck()
-
-                print('Shuffling Deck')
-                Deck.shuffle_deck()
-                Deck.shuffle_deck()
-
-                print("Dealing cards to players")
-                Deck.deal_cards(HumanPlayer, ComputerPlayer)
-                war.play_game(HumanPlayer, ComputerPlayer)
-
+                game = game_menu(name)
+                if game == 0:
+                    war.play_game(name)
+                elif game == 1:
+                    blackjack.play_game(name)
                 PLAYING = keep_playing()
+                print('')
 
     except KeyboardInterrupt:
         print("\nKeyboard Interrupt")

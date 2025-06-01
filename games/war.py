@@ -1,10 +1,13 @@
+from core.players import Player
+from core.cards import CardDeck
 
 # What happens if the players last card is A? It can only be beat by WAR but it doesn't have enough cards to keep playing...
 
 
 def resolve_war(Player1, Player2, card_pot): 
         print("STARTING WAR")
-        # input("Press Enter to flip your card: ")
+        input("Press Enter to flip your card: ")
+        print('')
         player1_burn = Player1.play_card()
         player1_card = Player1.play_card()
         player2_burn = Player2.play_card()
@@ -12,7 +15,7 @@ def resolve_war(Player1, Player2, card_pot):
         current_card_pot = [player1_burn, player2_burn, player2_card, player1_card] + card_pot
         print('')
         print(f"card pot in the war: {len(current_card_pot)}")
-        
+        print('')
         print(f"{Player1.name}'s card: {player1_card.name}")
         print(f"{Player2.name}'s card: {player2_card.name}")
 
@@ -33,10 +36,21 @@ def resolve_war(Player1, Player2, card_pot):
 
         # Need to handle this 
         
+def play_game(name):
+    Player1 = Player(name)
+    Player2 = Player("Computer")
+    Deck = CardDeck()
+    print('')
+    print(f"Starting deck size: {Deck.count_cards()} cards")
 
+    print("Shuffling Deck")
+    Deck.shuffle_deck()
+    Deck.shuffle_deck()
 
-
-def play_game(Player1, Player2):
+    print("Dealing cards to players")
+    Deck.deal_cards(Player1, Player2)
+    print(f"Ending deck size: {Deck.count_cards()} cards")
+    print('')
     total_hands = 0
     try: 
         while (len(Player1.cards) > 0) or (len(Player2.cards) > 0):
@@ -94,6 +108,7 @@ def play_game(Player1, Player2):
         print(f"{Player1.name} hands won: {Player1.hands_won}")
         print(f"{Player2.name} hands won: {Player2.hands_won}")
         print(f"Total Hands: {total_hands}")
+        print('')
 
     except KeyboardInterrupt: 
             print("\nKeyboard Interrupt")
